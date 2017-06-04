@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function() {
+            var sel = document.getElementById("sele");
+            sel.onchange = function(){
+                var va = this.value;
+                switch (va) {
+                    case "1":
+                        alert("今天hin开心，哈哈哈哈");
+                        break;
+                    case"2":
+                        alert("六一六一大地穿上花衣");
+                        break;
+                    case "3":
+                        alert("huhuhuhuhuhu");
+                        break;
+                    case "4":
+                        alert("dkjflkjaljjfoi");
+                        break;
+                    default :
+                        alert("nothing");
+                }
+
+
+            }
+        }
+    </script>
+</head>
+<body>
+<select name="" id="sele">
+    <option value="0">------请选择------</option>
+    <option value="1">哈哈哈哈</option>
+    <option value="2">啦啦啦啦</option>
+    <option value="3">呐呐呐呐</option>
+    <option value="4">嘻嘻嘻嘻</option>
+</select>
+</body>
+</html>
