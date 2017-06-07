@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    *{margin: 0;padding: 0;}
+    img {
+        display: block;/*清除图片底部3像素缝隙*/
+    }
+    ul,ol{
+            list-style-type: none;
+      }
+    .slider {
+            width: 490px;
+            height: 170px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            padding: 5px;
+            position: relative;
+        }
+    .inner {
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+            position: relative;
+            overflow: hidden;
+        }
+        .inner ul li {
+            float: left;
+        }
+        .inner ul {
+            width: 1000%;
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        .slider ol {
+            position: absolute;
+            left: 50%;
+            margin-left: -80px;
+            bottom: 10px;
+        }
+        .slider ol li {
+            float: left;
+            width: 18px;
+            height: 18px;
+            background-color: #fff;
+            margin-right: 10px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 18px;
+        }
+        .slider ol li.current {
+            background-color: #ff7e19;
+        }
+    </style>
+</head>
+<body>
+<div class="slider" id="jd">
+    <div class="inner">
+        <ul>
+            <li><a href="#"><img src="images/11.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/12.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/13.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/14.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/15.jpg" alt=""/></a></li>
+        </ul>
+    </div>
+    <ol>
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+</div>
+</body>
+</html>
+<script>
+    var jd = document.getElementById("jd");
+    var ul = jd.children[0].children[0];
+    var ol = jd.children[1];
+    var leader = 0;
+    var target = 0;
+    var olLis = ol.children;
+    for(var i=0;i<olLis.length;i++)
+    {
+        olLis[i].index = i;
+        olLis[i].onmouseover = function()
+        {
+            for(var j=0;j<olLis.length;j++)
+            {
+                olLis[j].className = "";
+            }
+            this.className = "current";
+            target = -this.index*490;
+        }
+    }
+    setInterval(function(){
+        leader = leader +(target-leader)/10;
+        ul.style.left = leader+"px";
+
+    },30);
+</script>

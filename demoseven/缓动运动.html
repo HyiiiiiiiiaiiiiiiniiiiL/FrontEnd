@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+            top: 300px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">运动</button>
+<div id="box">
+</div>
+</body>
+</html>
+<script>
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("box");
+    var timer = null;
+    var leader = 0;
+    var target = 500;
+    btn.onclick = function()
+    {
+        clearInterval(timer);
+        timer = setInterval(function(){
+            leader = leader +(target-leader)/10;
+            box.style.left = leader +"px";
+        },30);
+
+    }
+</script>
