@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1">Im piqi</div>
+<div id="div2">this is my mother</div>
+<button id="btn1">concat()</button><span></span><br/>
+<button id="btn2">slice(3)</button><span></span><br/>
+<button id="btn3">slice(3,6)</button><span></span><br/>
+<button id="btn4">slice(-1)</button><span></span><br/>
+<button id="btn5">substr(3)</button><span></span><br/>
+<button id="btn6">substr(3,6)</button><span></span><br/>
+<button id="btn7">substr(-1)ie678有兼容性问题</button><span></span><br/>
+<button id="btn8">substr(txt.length-1,1)</button><span></span><br/>
+</body>
+</html>
+<script>
+    var txt1 = document.getElementById("div1").innerHTML;
+    var txt2 = document.getElementById("div2").innerHTML;
+    function btnOnclick(id,txt){
+        document.getElementById(id).onclick = function()
+        {
+            this.nextSibling.innerHTML = txt;
+        }
+    }
+    btnOnclick("btn1",txt2.concat(txt2));//把字符串1和字符串2连接起来
+    btnOnclick("btn2",txt2.slice(3));//把字符串从索引号为3的位置开始取，取到最后一个
+    btnOnclick("btn3",txt2.slice(3,6));//把字符串从第三个位置开始取，取到第6个，但不包含第6个
+    btnOnclick("btn4",txt2.slice(-1));//如果为负数则是从右边往左边开始取
+    btnOnclick("btn5",txt2.substr(3));//从第三个开始一直取到最后一个
+    btnOnclick("btn6",txt2.substr(3,6));//从第三个往后取，取6个
+    btnOnclick("btn7",txt2.substr(-1));//有兼容性问题，少用
+    btnOnclick("btn8",txt2.substr(txt2.length-1,1));//取最后一个
+</script>
